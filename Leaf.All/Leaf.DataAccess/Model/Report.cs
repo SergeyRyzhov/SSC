@@ -2,7 +2,7 @@
 
 namespace Leaf.DataAccess.Model
 {
-    public class Conference : WebEntity
+    public class Report : WebEntity
     {
         public string Name { get; set; }
 
@@ -14,6 +14,5 @@ namespace Leaf.DataAccess.Model
 
         public List<File> Files { get; set; }
 
-        public List<Report> Reports { get; set; }
     }
 }

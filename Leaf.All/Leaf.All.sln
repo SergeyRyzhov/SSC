@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leaf", "Leaf\Leaf.csproj", "{3A90E98D-FA56-4A8F-B3B9-7BB9BD86C559}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leaf.DataAccess", "Leaf.DataAccess\Leaf.DataAccess.csproj", "{BC4401AB-F5EF-4F29-A03A-A82EAB2A6E64}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leaf.Common", "Leaf.Common\Leaf.Common.csproj", "{B9EB1D32-D248-4214-A97D-E6A39FC6C98B}"
@@ -16,16 +14,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{25A076
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leaf.Web", "Leaf.Web\Leaf.Web.csproj", "{77A64DC8-02BF-4EEC-A155-9EB3D37F96DB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3A90E98D-FA56-4A8F-B3B9-7BB9BD86C559}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3A90E98D-FA56-4A8F-B3B9-7BB9BD86C559}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3A90E98D-FA56-4A8F-B3B9-7BB9BD86C559}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3A90E98D-FA56-4A8F-B3B9-7BB9BD86C559}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BC4401AB-F5EF-4F29-A03A-A82EAB2A6E64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BC4401AB-F5EF-4F29-A03A-A82EAB2A6E64}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC4401AB-F5EF-4F29-A03A-A82EAB2A6E64}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -38,6 +34,10 @@ Global
 		{0D5D161F-4673-4323-895C-A4EDA00ABFD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D5D161F-4673-4323-895C-A4EDA00ABFD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D5D161F-4673-4323-895C-A4EDA00ABFD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77A64DC8-02BF-4EEC-A155-9EB3D37F96DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77A64DC8-02BF-4EEC-A155-9EB3D37F96DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77A64DC8-02BF-4EEC-A155-9EB3D37F96DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77A64DC8-02BF-4EEC-A155-9EB3D37F96DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

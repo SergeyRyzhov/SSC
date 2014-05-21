@@ -2,6 +2,7 @@
 
 namespace Leaf.Web.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ManagementController : Controller
     {
         //

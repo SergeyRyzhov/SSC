@@ -206,14 +206,27 @@
     <Compile Include="Areas\Admin\Controllers\ManagementController.cs" />
     <Compile Include="Areas\Admin\Controllers\ReportController.cs" />
     <Compile Include="Areas\Admin\Controllers\ReportRequestController.cs" />
+    <Compile Include="Areas\Content\ContentAreaRegistration.cs" />
+    <Compile Include="Areas\Content\Models\CreateConferenceModel.cs" />
+    <Compile Include="Areas\Manager\Controllers\ManagementController.cs" />
+    <Compile Include="Areas\Manager\Controllers\RequestController.cs" />
+    <Compile Include="Areas\Manager\ManagerAreaRegistration.cs" />
+    <Compile Include="Areas\Manager\Models\PendingConferenceModel.cs" />
+    <Compile Include="Areas\Manager\Models\PendingConferenceListModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Areas\Content\Controllers\ConferenceController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Areas\Content\Models\ConferenceList.cs" />
+    <Compile Include="Areas\Content\Models\ConferenceListModel.cs" />
+    <Compile Include="Models\ValidModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ConferenceRepository.cs" />
+    <Compile Include="Repositories\ConferenceRequestRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\themes\base\images\animated-overlay.gif" />
@@ -303,6 +316,11 @@
     <Content Include="Areas\Admin\Views\ReportRequest\Details.cshtml" />
     <Content Include="Areas\Admin\Views\ReportRequest\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\ReportRequest\Index.cshtml" />
+    <Content Include="Areas\Content\Views\web.config" />
+    <Content Include="Areas\Content\Views\Conference\Create.cshtml" />
+    <Content Include="Areas\Manager\Views\web.config" />
+    <Content Include="Areas\Manager\Views\Management\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\Request\Index.cshtml" />
     <None Include="Scripts\jquery-2.1.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.0.js" />
     <Content Include="Scripts\jquery-2.1.0.min.js" />
@@ -358,10 +376,13 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
+    <Content Include="Areas\Content\Views\Conference\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Content\Views\Shared\" />
+    <Folder Include="Areas\Manager\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

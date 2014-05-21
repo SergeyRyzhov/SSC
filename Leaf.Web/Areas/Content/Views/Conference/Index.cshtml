@@ -1,0 +1,46 @@
+﻿@using Leaf.Web.Areas.Content.Models
+@using Leaf.Web.Models
+@model ConferenceListModel
+
+@{
+    ViewBag.Title = "Конференции";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (!Model.IsValid)
+{
+    <span>Произошла ошибка:</span>
+    <span>@Model.Message</span>
+}
+else
+{
+    
+
+<h2>@ViewBag.Title</h2>
+    @Html.ActionLink("Создать конференцию", "Create")
+<table>
+    <thead>
+        <tr>
+            <td>Код</td>
+            <td>Название</td>
+            <td>Описание</td>
+            <td>Начало конференции</td>
+            <td>Конец конференции</td>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (ConferenceModel c in @Model.Conferences)
+        {
+            <tr>
+                <td>@c.Id</td>
+                <td>@c.Name</td>
+                <td>@c.Description</td>
+                <td>@c.SartDate</td>
+                <td>@c.EndDate</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+}

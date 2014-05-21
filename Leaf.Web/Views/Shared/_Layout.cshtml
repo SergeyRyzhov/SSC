@@ -12,7 +12,7 @@
     <header>
         <div class="content-wrapper">
             <div class="float-left">
-                <p class="site-title">@Html.ActionLink("your logo here", "Index", "Home" , new { area = "" }, null)</p>
+                <p class="site-title">@Html.ActionLink("your logo here", "Index", "Home", new { area = "" }, null)</p>
             </div>
             <div class="float-right">
                 <section id="login">
@@ -21,7 +21,16 @@
                 <nav>
                     <ul id="menu">
                         <li>@Html.ActionLink("Главная", "Index", "Home", new { area = "" }, null)</li>
-                        <li>@Html.ActionLink("Администратор", "Index", "Management", new { area = "Admin" }, null)</li>
+                        <li>@Html.ActionLink("Конференции", "Index", "Conference", new { area = "Content" }, null)</li>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li>@Html.ActionLink("Администратор", "Index", "Management", new { area = "Admin" }, null)</li>
+                        }
+                        
+                        @if (User.IsInRole("Manager"))
+                        {
+                            <li>@Html.ActionLink("Менеджер", "Index", "Management", new { area = "Manager" }, null)</li>
+                        }
                         <li>@Html.ActionLink("О нас", "About", "Home", new { area = "" }, null)</li>
                         <li>@Html.ActionLink("Контакты", "Contact", "Home", new { area = "" }, null)</li>
                     </ul>

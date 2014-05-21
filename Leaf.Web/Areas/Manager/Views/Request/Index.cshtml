@@ -1,0 +1,45 @@
+﻿@using Leaf.Web.Areas.Manager.Models
+@model Leaf.Web.Areas.Manager.Models.PendingConferenceListModel
+
+@{
+    ViewBag.Title = "Заявки конференций";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Заявки конференций</h2>
+
+
+@if (!Model.IsValid)
+{
+    <span>Произошла ошибка:</span>
+    <span>@Model.Message</span>
+}
+else
+{
+<table>
+    <thead>
+        <tr>
+            <td>Код</td>
+            <td>Название</td>
+            <td>Описание</td>
+            <td>Начало конференции</td>
+            <td>Конец конференции</td>
+            <td>Подтвердить</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (PendingConferenceModel c in @Model.Conferences)
+        {
+            <tr>
+                <td>@c.Id</td>
+                <td>@c.Name</td>
+                <td>@c.Description</td>
+                <td>@c.SartDate</td>
+                <td>@c.EndDate</td>
+                <td>@Html.ActionLink("Подтвердить", "Approve", "Request", new {id = c.Id}, new {id = c.Id})</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+}

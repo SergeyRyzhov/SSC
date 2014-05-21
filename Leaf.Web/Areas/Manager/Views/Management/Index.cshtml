@@ -1,0 +1,13 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Управление";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Управление</h2>
+<nav>
+    <ul id="menu">
+        <li>@Html.ActionLink("Заявки конференций", "Index", "Request")</li>
+    </ul>
+</nav>

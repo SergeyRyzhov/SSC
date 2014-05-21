@@ -1,4 +1,10 @@
-﻿namespace Leaf.Web
+﻿using System.Linq;
+using System.Web.ApplicationServices;
+using System.Web.Security;
+
+using WebMatrix.WebData;
+
+namespace Leaf.Web
 {
     public static class AuthConfig
     {
@@ -20,6 +26,37 @@
             //    appSecret: "");
 
             //OAuthWebSecurity.RegisterGoogleClient();
+
+            WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "UserName", true);
+            const string userName = "sryzhov";
+            const string admin = "Admin";
+            const string manager = "Manager";
+
+
+            if (WebSecurity.UserExists(userName))
+            {
+                var roles = Roles.GetAllRoles();
+
+                if (!roles.Contains(admin))
+                {
+                    Roles.CreateRole(admin);
+                }
+
+                if (!Roles.IsUserInRole(userName, admin))
+                {
+                    Roles.AddUserToRole(userName, admin);
+                }
+
+                if (!roles.Contains(manager))
+                {
+                    Roles.CreateRole(manager);
+                }
+
+                if (!Roles.IsUserInRole(userName, manager))
+                {
+                    Roles.AddUserToRole(userName, manager);
+                }
+            }
         }
     }
 }

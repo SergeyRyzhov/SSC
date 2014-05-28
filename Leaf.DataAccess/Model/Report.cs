@@ -4,6 +4,8 @@ namespace Leaf.DataAccess.Model
 {
     public class Report : WebEntity
     {
+        public string Owner { get; set; }
+
         public string Name { get; set; }
 
         public string ShortDescription { get; set; }

@@ -5,6 +5,8 @@ namespace Leaf.DataAccess.Model
 {
     public class Conference : WebEntity
     {
+        public string Owner { get; set; }
+
         public string Code { get; set; }
 
         public string Name { get; set; }

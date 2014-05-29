@@ -16,31 +16,34 @@ else
 {
     
 
-<h2>@ViewBag.Title</h2>
+    <h2>@ViewBag.Title</h2>
     @Html.ActionLink("Создать конференцию", "Create")
-<table>
-    <thead>
-        <tr>
-            <td>Код</td>
-            <td>Название</td>
-            <td>Описание</td>
-            <td>Начало конференции</td>
-            <td>Конец конференции</td>
-            
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (ConferenceModel c in @Model.Conferences)
-        {
+    <table>
+        <thead>
             <tr>
-                <td>@c.Id</td>
-                <td>@c.Name</td>
-                <td>@c.Description</td>
-                <td>@c.SartDate</td>
-                <td>@c.EndDate</td>
+                <td>Код</td>
+                <td>Название</td>
+                <td>Описание</td>
+                <td>Начало конференции</td>
+                <td>Конец конференции</td>
+                <td></td>
+                <td></td>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (ConferenceModel c in @Model.Conferences)
+            {
+                <tr>
+                    <td>@c.Id</td>
+                    <td>@c.Name</td>
+                    <td>@c.ShortDescription</td>
+                    <td>@c.StartDate</td>
+                    <td>@c.EndDate</td>
+                    <td>@Html.ActionLink("Редактирование", "Edit", new { id = c.Id }, new { id = c.Id })</td>
+                    <td>@Html.ActionLink("Доклады", "Index", "Report", new { id = c.Id }, new { id = c.Id })</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 
 }

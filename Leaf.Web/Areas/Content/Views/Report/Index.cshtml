@@ -1,0 +1,31 @@
+﻿@using Leaf.Web.Areas.Content.Controllers
+@model ReportListModel
+
+@{
+    ViewBag.Title = "Доклады";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+@Html.ActionLink("Создать доклад", "Create", new { id = Model.ConferenceId }, new { id = Model.ConferenceId })
+<table>
+    <thead>
+        <tr>
+            <td>Докладчик</td>
+            <td>Название</td>
+            <td>Краткое описание</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (ReportModel c in @Model.Reports)
+        {
+            <tr>
+                <td>@c.Owner</td>
+                <td>@c.Name</td>
+                <td>@c.ShortDescription</td>
+                <td>@Html.ActionLink("Редактирование", "Edit", new { id = c.Name }, new { id = c.Name })</td>
+            </tr>
+        }
+    </tbody>
+</table>

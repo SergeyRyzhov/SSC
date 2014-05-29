@@ -207,6 +207,8 @@
     <Compile Include="Areas\Admin\Controllers\ReportController.cs" />
     <Compile Include="Areas\Admin\Controllers\ReportRequestController.cs" />
     <Compile Include="Areas\Content\ContentAreaRegistration.cs" />
+    <Compile Include="Areas\Content\Controllers\ReportController.cs" />
+    <Compile Include="Areas\Content\Models\ConferenceViewModel.cs" />
     <Compile Include="Areas\Content\Models\CreateConferenceModel.cs" />
     <Compile Include="Areas\Manager\Controllers\ManagementController.cs" />
     <Compile Include="Areas\Manager\Controllers\RequestController.cs" />
@@ -221,12 +223,14 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Areas\Content\Models\ConferenceList.cs" />
+    <Compile Include="Areas\Content\Models\ConferenceModel.cs" />
     <Compile Include="Areas\Content\Models\ConferenceListModel.cs" />
     <Compile Include="Models\ValidModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Helpers\ClientContext.cs" />
     <Compile Include="Repositories\ConferenceRepository.cs" />
     <Compile Include="Repositories\ConferenceRequestRepository.cs" />
+    <Compile Include="Helpers\IClientContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\themes\base\images\animated-overlay.gif" />
@@ -322,6 +326,9 @@
     <Content Include="Areas\Manager\Views\Management\Index.cshtml" />
     <Content Include="Areas\Manager\Views\Request\Index.cshtml" />
     <Content Include="ClassDiagram1.cd" />
+    <Content Include="Areas\Content\Views\Conference\Edit.cshtml" />
+    <Content Include="Areas\Content\Views\Report\Index.cshtml" />
+    <Content Include="Areas\Content\Views\Report\Create.cshtml" />
     <None Include="Scripts\jquery-2.1.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.0.js" />
     <Content Include="Scripts\jquery-2.1.0.min.js" />

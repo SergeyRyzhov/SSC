@@ -6,6 +6,8 @@ namespace Leaf.DataAccess.Model
     {
         public string Owner { get; set; }
 
+        public string ConferenceCode { get; set; }
+
         public string Name { get; set; }
 
         public string ShortDescription { get; set; }

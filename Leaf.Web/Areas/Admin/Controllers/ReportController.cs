@@ -47,7 +47,7 @@ namespace Leaf.Web.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="Id,Name,ShortDescription,Description,IsPublished,PublishDate")] Report report)
+        public ActionResult Create([Bind(Include="Id,Name,ShortDescription,ShortDescription,IsPublished,PublishDate")] Report report)
         {
             if (ModelState.IsValid)
             {
@@ -80,7 +80,7 @@ namespace Leaf.Web.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="Id,Name,ShortDescription,Description,IsPublished,PublishDate")] Report report)
+        public ActionResult Edit([Bind(Include="Id,Name,ShortDescription,ShortDescription,IsPublished,PublishDate")] Report report)
         {
             if (ModelState.IsValid)
             {

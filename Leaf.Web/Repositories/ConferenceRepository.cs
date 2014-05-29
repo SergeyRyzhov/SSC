@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.SqlTypes;
+using System.Globalization;
 using System.Linq;
 
 using Leaf.DataAccess.Contexts;
 using Leaf.DataAccess.Model;
 using Leaf.Web.Areas.Content.Models;
+using Leaf.Web.Helpers;
 
 using WebGrease.Css.Extensions;
 
@@ -15,7 +18,11 @@ namespace Leaf.Web.Repositories
     {
         ConferenceListModel GetPublishedConferenceList();
 
+        ConferenceViewModel GetById(string id);
+
         void Create(CreateConferenceModel model);
+
+        void Save(ConferenceViewModel model);
     }
 
     public class ConferenceRepository : IConferenceRepository
@@ -44,8 +51,25 @@ namespace Leaf.Web.Repositories
             return model;
         }
 
+        public ConferenceViewModel GetById(string id)
+        {
+            var model = this.GetConferenceById(id);
+            var conf = new ConferenceViewModel
+                           {
+                               Name = model.Name,
+                               Description = model.Description,
+                               ShortDescription = model.ShortDescription,
+                               StartDate = model.StartDate.ToString(CultureInfo.InvariantCulture),
+                               EndDate = model.EndDate.ToString(CultureInfo.InvariantCulture)
+                           };
+
+            return conf;
+        }
+
         public void Create(CreateConferenceModel model)
         {
+            IClientContext clientContext = ClientContext.Current;
+
             var conference = new Conference
                         {
                             Id = Guid.NewGuid(),
@@ -57,9 +81,10 @@ namespace Leaf.Web.Repositories
                             EndDate = model.EndDate,
                             IsPublished = false,
                             PublishDate = SqlDateTime.MinValue.Value,
+                            Owner = clientContext.User.Identity.Name,
                             Files = new List<File>(),
-                            Images = new List<Image>(),
-                            Reports = new List<Report>()
+                            Images = new List<Image>()/*,
+                            Reports = new List<Report>()*/
                         };
 
             m_context.Conferences.Add(conference);
@@ -69,6 +94,41 @@ namespace Leaf.Web.Repositories
             var request = new ConferenceRequest { Id = Guid.NewGuid(), ConferenceId = saved.Id, Approved = false };
             m_context.ConferenceRequests.Add(request);
             m_context.SaveChanges();
+        }
+
+        public void Save(ConferenceViewModel model)
+        {
+            try
+            {
+                var conf = GetConferenceById(model.Id);
+
+                conf.Name = model.Name;
+                conf.Description = model.Description;
+                conf.ShortDescription = model.ShortDescription;
+                conf.StartDate = DateTime.Parse(model.StartDate);
+                conf.EndDate = DateTime.Parse(model.EndDate);
+
+                m_context.Entry(conf).State = EntityState.Modified;
+                m_context.SaveChanges();
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+            }
+        }
+
+        private Conference GetConferenceById(string id)
+        {
+            try
+            {
+                return this.m_context.Conferences.Where(c => c.Code.Equals(id, StringComparison.InvariantCultureIgnoreCase)).ToArray()[0];
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+            }
+
+            return null;
         }
     }
 }

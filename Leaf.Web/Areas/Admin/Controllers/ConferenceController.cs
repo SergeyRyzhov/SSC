@@ -44,7 +44,7 @@ namespace Leaf.Web.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="Id,Code,Name,StartDate,EndDate,Description,ShortDescription,IsPublished,PublishDate")] Conference conference)
+        public ActionResult Create([Bind(Include="Id,Code,Name,StartDate,EndDate,ShortDescription,ShortDescription,IsPublished,PublishDate")] Conference conference)
         {
             if (ModelState.IsValid)
             {
@@ -77,7 +77,7 @@ namespace Leaf.Web.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="Id,Code,Name,StartDate,EndDate,Description,ShortDescription,IsPublished,PublishDate")] Conference conference)
+        public ActionResult Edit([Bind(Include="Id,Code,Name,StartDate,EndDate,ShortDescription,ShortDescription,IsPublished,PublishDate")] Conference conference)
         {
             if (ModelState.IsValid)
             {

@@ -29,7 +29,7 @@ namespace Leaf.Web.Areas.Content.Models
             }
         }
 
-        public string Description
+        public string ShortDescription
         {
             get
             {
@@ -37,7 +37,15 @@ namespace Leaf.Web.Areas.Content.Models
             }
         }
 
-        public string SartDate
+        public string Description
+        {
+            get
+            {
+                return this.m_conference.Description;
+            }
+        }
+
+        public string StartDate
         {
             get
             {

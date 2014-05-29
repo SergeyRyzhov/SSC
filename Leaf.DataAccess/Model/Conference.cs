@@ -23,6 +23,6 @@ namespace Leaf.DataAccess.Model
 
         public List<File> Files { get; set; }
 
-        public List<Report> Reports { get; set; }
+//        public List<Report> Reports { get; set; }
     }
 }
